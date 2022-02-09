@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+    <title>Spring MVC - products</title>
+    <link  href="http://cdn.jsdelivr.net/webjars/bootstrap/4.3.1/css/bootstrap.min.css"
+           th:href="@{webjars/bootstrap/4.3.1/css/bootstrap.min.css}"
+           rel="stylesheet" media="screen"
+    />
+    <script src="http://cdn.jsdelivr.net/webjars/jquery/3.4.1/jquery.min.js"
+            th:src="@{webjars/jquery/3.4.1/jquery.min.js}"
+    ></script>
+    <link href="../static/spring-core.css"
+          th:href="@{spring-core.css}" rel="stylesheet" media="screen" />
+</head>
+<body>
+    <div class="container">
+        <div th:if="${not #lists.isEmpty(products)}">
+            <h2>Product list</h2>
+            <table class="table table-striped">
+                <tr>
+                    <th>Id</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                    <th>View details</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+                <tr th:each="product : ${products}">
+                    <td th:text="${product.id}"></td>
+                    <td th:text="${product.description}"></td>
+                    <td th:text="${product.price}"></td>
+                    <td><a th:href="${'/product/'+product.id}" >View product</a></td>
+                    <td><a th:href="${'/product/edit/'+product.id}">Edit Product</a></td>
+                    <td><a th:href="${'/product/delete/'+product.id}">Delete Product</a></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+</body>
+</html>

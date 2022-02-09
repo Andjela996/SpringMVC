@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+    <title>Spring MVC - product by id</title>
+    <link  href="http://cdn.jsdelivr.net/webjars/bootstrap/4.3.1/css/bootstrap.min.css"
+           th:href="@{/webjars/bootstrap/4.3.1/css/bootstrap.min.css}"
+           rel="stylesheet" media="screen"
+    />
+    <script src="http://cdn.jsdelivr.net/webjars/jquery/3.4.1/jquery.min.js"
+            th:src="@{/webjars/jquery/3.4.1/jquery.min.js}"
+    ></script>
+    <link href="../static/spring-core.css"
+          th:href="@{/spring-core.css}" rel="stylesheet" media="screen" />
+</head>
+<body>
+    <div class="container">
+        <h2>Customer details</h2>
+        <p th:text="${customer.id}"></p>
+        <p th:text="${customer.fName}"></p>
+        <p th:text="${customer.lName}"></p>
+        <p th:text="${customer.email}"></p>
+    </div>
+</body>
+</html>
